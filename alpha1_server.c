@@ -9,4 +9,6 @@ void ticket_book()
     printf("Welcome to <name> !");
     printf("Enter start and stop destination from the given options:\n");
     
+    int i;
+    
 }

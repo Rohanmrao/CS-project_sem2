@@ -9,7 +9,7 @@ void ticket_book()
     printf("Welcome to <name> !");
     printf("Enter start and stop destination from the given options:\n");
     
-    FILE *display_places_ptr; char display_options
+    FILE *display_places_ptr; char display_options;
     
     display_places_ptr = fopen("places.txt",r);
     while(1)

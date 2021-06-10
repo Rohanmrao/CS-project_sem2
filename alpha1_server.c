@@ -11,7 +11,7 @@ void ticket_book()
     
     FILE *display_places_ptr; char display_options;
     
-    display_places_ptr = fopen("places.txt",r);
+    display_places_ptr = fopen("places.txt",'r');
     while(1)
     {
       display_options = fgetc(display_places_ptr);

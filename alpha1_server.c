@@ -7,7 +7,7 @@
 void ticket_book()
 {
     printf("Welcome to <name> !");
-    printf("Enter start and stop destination from the given options:\n");
+    printf("Enter source and destination from the given options:\n");
     
     FILE *display_places_ptr; char display_options;
     

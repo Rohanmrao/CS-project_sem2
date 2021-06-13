@@ -3,7 +3,7 @@
 #include <time.h>
 int main()
 {
-	int a,i,otp,otp_enter;
+	int a,otp,otp_enter;
 	long double ph;
 
 	srand(time(0));

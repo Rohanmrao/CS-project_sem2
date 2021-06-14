@@ -7,52 +7,42 @@
 
 void train_disp()
 {
-    printf("Here are the available trains to your destination...\n");
-    printf("___(The deprature timings are mentioned below the train names)___ ");
+   printf("Here are the available trains to your destination...\n");
+    printf("___(The deprature timings are mentioned below the train names)___ \n");
 
-        char train_db[21] = {'MatsyagandhaExpress','MangalaLakshadweepExpress','PrashantiExpres',
-                            'SharavatiExpress','WaingangaSuperfastExpress','KondaveeduExpress'
-                            ,'RaniChennammaExpress','JanShatabdiExpress','RajyaRaniExpress'
-                            ,'SiddagangaIntercity','VishwamanavaExpress','ChamundiExpress'
-                            ,'KaveriExpress','BasavaExpress','GolGumbazExpress','TippuSuperfastExpress'    
-                            ,'DurontoExpress','GaribRathExpress','MalgudiExpress','GomateshwaraExpress'
-                                ,'KarnatakaSamparkKrantiExpress'
+        char *train_db[25] = {"MatsyagandhaExpress","MangalaLakshadweepExpress","PrashantiExpress",
+                            "SharavatiExpress","WaingangaSuperfastExpress","KondaveeduExpress"
+                            ,"RaniChennammaExpress","JanShatabdiExpress","RajyaRaniExpress"
+                            ,"SiddagangaIntercity","VishwamanavaExpress","ChamundiExpress"
+                            ,"KaveriExpress","BasavaExpress","GolGumbazExpress","TippuSuperfastExpress"    
+                            ,"DurontoExpress","GaribRathExpress","MalgudiExpress","GomateshwaraExpress"
+                           ,"KarnatakaSamparkKrantiExpress","AiravathaExpress"
+						   ,"Speed1Express","Speed2Express","Speed3Express"
                         };   // database of trains 
+						
+		int time_hr[25] = {1,2,3,4,5,6,7,8,9,10,11,12,11,10,9,8,7,6,5,4,3,2,1,4,5};
+		int time_min[25] = {10,15,20,30,35,40,45,50,40,35,30,25,20,15,10,10,15,20,25,30,30,30,30,45,45};   // database of times 
 
-    int l = 0, u = 20, ind;
-    srand(time(0)); 
+		int l = 0, u = 26, ind1,ind2;
+		srand(time(0)); 
+	
         for(int i = 0; i < 5; i++)
         {
-                        int time_hr[12] = {1,2,3,4,5,6,7,8,9,10,11,12};
-                        int time_min[8] = {10,15,20,30,35,40,45,50};   // database of times 
-                        int rand_hr,rand_min;
+                        
+                        
 
-                        int low_hr = 0,up_hr = 11,hr_index,hr;
-                        srand(time(0));
-                            for (int i = 0; i < 2; i++) {
-                                hr_index = (rand() % (up_hr - low_hr + 1)) + low_hr;
-                                hr = time_hr[hr_index];
-                                break;
-                            }
-
-                        int low_min = 0,up_min = 7,min_index,min;
-                        srand(time(0));
-                            for (int i = 0; i < 2; i++) {
-                                min_index = (rand() % (up_min - low_min + 1)) + low_min;
-                                min = time_min[min_index];
-                                break;
-                            }
-
-            ind = (rand() % (u - l + 1)) + l;
-            printf("%d.",i+1);
-            printf("%c_",train_db[ind]);
+            ind1 = (rand() % (u - l + 1)) + l;
+			int hr = time_hr[ind1];
+			int min = time_min[ind1];
+            printf("%d. ",i+1);
+            printf("%s ",train_db[ind1]);
             if(i%2 == 0)
             {
-                printf("%d:%d AM\n",hr,min);
+                printf(" %d:%d AM\n",hr,min);
             }
             else if( i%2 != 0)
             {
-                printf("%d:%d PM\n",hr,min);
+                printf(" %d:%d PM\n",hr,min);
             }
         }
     }

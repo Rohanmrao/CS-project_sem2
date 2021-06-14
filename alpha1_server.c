@@ -10,16 +10,15 @@ void train_disp()
     printf("Here are the available trains to your destination...\n");
     printf("___(The deprature timings are mentioned below the train names)___ ");
 
-        char train_db[21] = {'MatsyagandhaExpress','MangalaLakshadweepExpress','PrashantiExpres',
+        char train_db[7][3] = {'MatsyagandhaExpress','MangalaLakshadweepExpress','PrashantiExpres',
                             'SharavatiExpress','WaingangaSuperfastExpress','KondaveeduExpress'
                             ,'RaniChennammaExpress','JanShatabdiExpress','RajyaRaniExpress'
                             ,'SiddagangaIntercity','VishwamanavaExpress','ChamundiExpress'
-                            ,'KaveriExpress','BasavaExpress','GolGumbazExpress','TippuSuperfastExpress'    
-                            ,'DurontoExpress','GaribRathExpress','MalgudiExpress','GomateshwaraExpress'
-                                ,'KarnatakaSamparkKrantiExpress'
-                        };   // database of trains 
+                            ,'KaveriExpress','BasavaExpress','GolGumbazExpress',
+			     'TippuSuperfastExpress','DurontoExpress','GaribRathExpress'
+				,'MalgudiExpress','GomateshwaraExpress','KarnatakaSamparkKrantiExpress'};   // database of trains 
 
-    int l = 0, u = 20, ind;
+    int l = 0, u = 20, ind1, ind2;
     srand(time(0)); 
         for(int i = 0; i < 5; i++)
         {
@@ -43,9 +42,11 @@ void train_disp()
                                 break;
                             }
 
-            ind = (rand() % (u - l + 1)) + l;
+            ind1 = (rand() % (u - l + 1)) + l;
+		ind2 = (rand() % (u - l + 1)) + l;
+		
             printf("%d.",i+1);
-            printf("%c_",train_db[ind]);
+            printf("%c_",train_db[ind1][ind2]);
             if(i%2 == 0)
             {
                 printf("%d:%d AM\n",hr,min);

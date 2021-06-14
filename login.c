@@ -31,7 +31,6 @@ void random_num()
     {
         printf("\n        SORRY !!!!  LOGIN IS UNSUCESSFUL");
 	a++;
-	system("cls");
         i++;
     }
 }

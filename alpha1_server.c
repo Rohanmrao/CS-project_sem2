@@ -46,6 +46,31 @@ void train_disp()
             }
         }
     }
+void places_disp()
+{
+	// this is the function that will show all the available places 
+
+	printf("Here are the available stations:\n");
+	FILE* places_disp;
+    int display;
+ 
+    // Creates a file "demo_file"
+    // with file acccess as read mode
+    places_disp = fopen("places.txt", "r");
+ 
+    // loop to extract every characters
+    while (1) {
+        // reading file
+        display = fgetc(places_disp);
+ 
+        // end of file indicator
+        if (feof(places_disp))
+            break;
+ 
+        // displaying every characters
+        printf("%c", display);
+    }
+}
 /*    
 int otp_gen() // to generate all our random numbers
 {

@@ -26,7 +26,7 @@ int main()
 
 	printf(">> View All Available Trains");
 	printf("\n------------------------");
-    	train_disp();
+    
 	places_disp();
 	
 	int distance_val = 0;
@@ -38,6 +38,7 @@ int main()
 	scanf("%d",&p2);
 	
 	enterplace(p1,p2,distance_val);
+	train_disp();
 	rates_dist(); // the first rate multiplier is generated here
 	
 	// Poorna's bio data and ticket book function comes here

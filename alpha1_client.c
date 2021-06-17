@@ -21,10 +21,11 @@ int main()
 	printf("\n=================================\n");
 	printf("    TRAIN RESERVATION SYSTEM - LOGIN/CANCEL PAGE");
 	printf("\n=================================");
-	// neelan's function will come here
+	mobileNumber();
+	random_num();
 	// roshan's cancel function comes here
 
-	printf(">> View All Available Trains");
+	printf(">> View All Available Places and Trains");
 	printf("\n------------------------");
     
 	places_disp();
@@ -43,9 +44,7 @@ int main()
 	
 	// Poorna's bio data and ticket book function comes here
 	
-	
-	
-	
+	cancel_end();
 	
 	return(0);
 }

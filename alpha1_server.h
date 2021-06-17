@@ -6,3 +6,5 @@ int rates_dist();
 double mobileNumber()// Rohan 
 
 void cancel_end(); // Roshan
+
+void random_num(); //Neelan

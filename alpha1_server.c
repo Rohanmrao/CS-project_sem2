@@ -74,15 +74,15 @@ void places_disp()
     }
 	
 }
-int enterplace()
+int enterplace(p1,p2,distance_val)
 {
-	int distance_val = 0;
-	printf("Enter the Sl.no of the start point: ");
-	int p1 = 0;
-	scanf("%d",&p1);
-	printf("Enter the Sl.no of the end point: ");
-	int p2 = 0;
-	scanf("%d",&p2);
+// 	int distance_val = 0;
+// 	printf("Enter the Sl.no of the start point: ");
+// 	int p1 = 0;
+// 	scanf("%d",&p1);
+// 	printf("Enter the Sl.no of the end point: ");
+// 	int p2 = 0;
+// 	scanf("%d",&p2);
 
 	if(p2 > p1){
 		distance_val = p2-p1;

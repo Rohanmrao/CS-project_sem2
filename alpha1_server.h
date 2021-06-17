@@ -8,3 +8,5 @@ double mobileNumber()// *Rohan and Neelan
 void cancel_end(); // Roshan
 
 void random_num(); //Neelan
+
+void final_ticket(int s, int t); //Poornachandra

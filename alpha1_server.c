@@ -28,9 +28,6 @@ void train_disp()
 	
         for(int i = 0; i < 5; i++)
         {
-                        
-                        
-
             ind1 = (rand() % (u - l + 1)) + l;
 			int hr = time_hr[ind1];
 			int min = time_min[ind1];
@@ -46,88 +43,76 @@ void train_disp()
             }
         }
     }
-/*    
-int otp_gen() // to generate all our random numbers
+
+void places_disp()
 {
-    int a,otp,i;
-    srand(time(NULL));
-    printf("                       ONE TIME PASSWORD is :-");
-    a=rand();
-    printf("%d\n",a);
-    printf(" \n                       ENTER ONE TIME PASSWORD:-");
-    scanf("%d",otp);
-    if(a==otp)
-    {
-        printf("  \n\n\n       WELCOME TO OUR SYSTEM !! YOUR LOGIN IS SUCCESSFUL");
-	    printf("\n\n\n\t\t\t\tPress any key to continue...");
-    }
-    else
-    {
-        printf("\n        SORRY !!!!  LOGIN IS UNSUCESSFUL");
-		a++;
-		system("cls");
-        i++;
+	// this is the function that will show all the available places 
+
+	printf("Here are the available stations:\n");
+	FILE* places_disp;
+    int display;
+ 
+    // Creates a file "demo_file"
+    // with file acccess as read mode
+    places_disp = fopen("places.txt", "r");
+ 
+    // loop to extract every characters
+    while (1) {
+        // reading file
+        display = fgetc(places_disp);
+ 
+        // end of file indicator
+        if (feof(places_disp))
+            break;
+ 
+        // displaying every characters
+        printf("%c", display);
     }
 }
-void reservation(void)
+int enterplace()
 {
-	char confirm;
-	int i=0;
-	float charges;
-	pd passdetails;
-	FILE *fp;
-	fp=fopen("seats_reserved.txt","a");
-	system("cls");
-	
-	printf("\nEnter Your Name:> ");
-	fflush(stdin);
-	gets(passdetails.name);
-	//error here have to take input of the name 
-	printf("\nEnter Number of seats:> ");
-	scanf("%d",&passdetails.num_of_seats);
-	printf("\n\n>>Press Enter To View Available Trains<< ");
-	getch();
-	system("cls");
-	viewdetails();
-	printf("\n\nEnter train number:> ");
-	start1:
-	scanf("%d",&passdetails.train_num);
-	if(passdetails.train_num>=1001 && passdetails.train_num<=1010)
-	{
-		charges=charge(passdetails.train_num,passdetails.num_of_seats);
-		printticket(passdetails.name,passdetails.num_of_seats,passdetails.train_num,charges);		
+	int distance_val = 0;
+	printf("Enter the Sl.no of the start point: ");
+	int p1 = 0;
+	scanf("%d",&p1);
+	printf("Enter the Sl.no of the end point: ");
+	int p2 = 0;
+	scanf("%d",&p2);
+
+	if(p2 > p1){
+		distance_val = p2-p1;
 	}
-	else
-	{
-		printf("\nInvalid train Number! Enter again--> ");
-		goto start1;
+	else if (p1 >p2){
+		distance_val = p1-p2;
 	}
-	
-	printf("\n\nConfirm Ticket (y/n):>");
-	start:
-	scanf(" %c",&confirm);
-	if(confirm == 'y')
-	{
-		fprintf(fp,"%s\t\t%d\t\t%d\t\t%.2f\n",&passdetails.name,passdetails.num_of_seats,passdetails.train_num,charges);
-		printf("==================");
-		printf("\n Reservation Done\n");
-		printf("==================");
-		printf("\nPress any key to go back to Main menu");
+	else {
+		distance_val = 0;
 	}
-	else
+
+	if((p1 >15 && p2 >15) || (p2 <=0 && p1 <=0))
 	{
-		if(confirm=='n'){
-			printf("\nReservation Not Done!\nPress any key to go back to  Main menu!");
-		}
-		else
-		{
-			printf("\nInvalid choice entered! Enter again-----> ");
-			goto start;
-		}
+		printf("Invalid inputs..");
 	}
-	fclose(fp);
-	getch();
+	return distance_val;
 }
 
-*/
+int rates_dist()
+{
+	int dist = enterplace();
+	int dist_multiplier;
+	if(dist >= 1 && dist <=5)
+	{
+		dist_multiplier = 2;
+	}
+	else if(dist >=6 && dist <=10)
+	{
+		dist_multiplier = 3;
+	}
+	else if(dist >=11 && dist <15)
+	{
+		dist_multiplier = 4;
+	}
+	return dist_multiplier ; // Poorna use this to multiply with reservation multiplier and
+							// number of tickets to get final ticket price 
 
+}

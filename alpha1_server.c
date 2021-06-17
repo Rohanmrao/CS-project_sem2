@@ -160,4 +160,50 @@ void cancel_end()
 	}
 	printf("	THANK YOU! \n");
 }
+double mobileNumber()                                         //Function definition
+{
+	double mobileNum;
+	printf("\n  =======================  LOGIN FORM  =======================\n  ");
+    printf("                       ENTER YOUR PHONE NUMBER: ");
+	scanf("%lf",&mobileNum);
+	
+    if (mobileNum < 1000000000 || mobileNum > 9999999999)
+    {
+        printf("\n Please enter only 10 digits... \n");
+		mobileNumber();    
+    }
+    return mobileNum;
+}
+
+int random_num()
+{
+    int a,otp;
+    int i;
+	double mob = mobileNumber();
+    
+    printf("\n");
+    printf("                       ONE TIME PASSWORD is : ");
+    a=rand();
+    printf("%d\n",a);
+    printf(" \n                       ENTER ONE TIME PASSWORD: ");
+    scanf("%d",&otp);
+    i=0; 
+    
+    if(a==otp)
+    {
+        printf("  \n\n\n       WELCOME TO OUR SYSTEM !! YOUR LOGIN IS SUCCESSFUL");
+	 
+        FILE *fp;
+	    fp=fopen("logindetails.txt","w");
+        fprintf(fp,"%lf",mob);
+        fclose(fp);
+
+    }    
+    else 
+    {
+        printf("\n              SORRY !!!!  LOGIN IS UNSUCESSFULL");
+        
+        
+    }
+}
 

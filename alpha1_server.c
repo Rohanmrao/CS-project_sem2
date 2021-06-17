@@ -200,7 +200,8 @@ int random_num()
     }
 }
 void final_ticket(int s, int t)
-{
+{	
+	int rm = 1;
 	int dm = rates_dist();
    
   // reservation multipliers: 1- rs 25 | 2 - rs 20 |3 - rs 15 |4 - rs 10
@@ -235,7 +236,7 @@ void final_ticket(int s, int t)
   //final price = distance_multiplier * number of tickets * reservation multiplier
   // reservation multipliers: 1- rs 25 | 2 - rs 20 |3 - rs 15 |4 - rs 10
   int fp ,dm;
-  fp = dm*t*rm;
+  fp = dm*t*rm*20;
   printf("total cost : %f",fp);
 
 }

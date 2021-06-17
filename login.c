@@ -77,7 +77,7 @@ int random_num()
         }
         else
         {
-            printf("\n       So many attempts");
+            printf("\n       Too many attempts");
             input_details();
        
              

@@ -57,8 +57,8 @@ int random_num()
     if(a==otp)
     {
         printf("  \n\n\n       WELCOME TO OUR SYSTEM !! YOUR LOGIN IS SUCCESSFUL");
-	    printf("\n\n\n\t\t\t\tPress any key to continue...");
-        getch();
+	   // printf("\n\n\n\t\t\t\tPress any key to continue...");
+        //getch();
         FILE *fp;
 	    fp=fopen("logindetails.txt","a");
         fprintf(fp,"%d",&mobileNumber);
@@ -67,7 +67,7 @@ int random_num()
     }    
     else 
     {
-        printf("\n              SORRY !!!!  LOGIN IS UNSUCESSFULL");
+        printf("\n              SORRY !!!!  LOGIN IS UNSUCESSFUL");
         
         if(i<=1)
         {

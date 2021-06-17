@@ -176,7 +176,9 @@ int random_num()
     
     printf("\n");
     printf("                       ONE TIME PASSWORD is : ");
-    a=rand();
+    int l = 1000, u = 9999, otp, trials = 0;
+	srand(time(0)); 
+	a = (rand() % (u - l + 1)) + l;
     printf("%d\n",a);
     printf(" \n                       ENTER ONE TIME PASSWORD: ");
     scanf("%d",&otp);

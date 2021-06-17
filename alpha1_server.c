@@ -120,3 +120,44 @@ int enterplace()
 							// number of tickets to get final ticket price 
 }
 
+void cancel_end()
+{
+	int a, otp, otp_enter;
+
+	printf("	TO PROCEED TO CANCELLATION, PRESS '1':  \n");    //USER CONFIRMS WHETHER HE WANTS TO PROCEED TO CANCELLATION.
+	scanf("%d", &a);
+	if(a == 1)
+	{
+		int l = 1000, u = 9999, otp, trials = 0;
+
+		srand(time(0)); 
+		otp = (rand() % (u - l + 1)) + l;  //ENSURING THAT THE RANDOM OTP GENERATED WILL CONSIST OF 4 DIGITS ONLY.
+		printf("	OTP: %d\n", otp);
+		printf("\n");
+		printf("	ENTER YOUR OTP: ");
+		scanf("%d", &otp_enter);
+		//WE SHALL LIMIT THE NUMBER OF TRIALS OF OTP ENTRY TO 4.
+		while((otp_enter != otp) && (trials <= 2))
+		{
+			printf("	INVALID OTP! PLEASE TRY AGAIN \n");
+			printf("\n");
+			printf("	ENTER YOUR OTP: ");
+			scanf("%d", &otp_enter);
+			trials++;
+		}
+		//CHECKING IF THE NUMBER ENTERED MATCHES THE GENERATED OTP
+		if(otp_enter == otp)
+		{
+			printf("\n");
+			printf("	TICKETS HAVE BEEN CANCELED! \n");
+		}
+		else
+		{
+			printf("\n");
+			printf("	UNABLE TO CANCEL. SORRY!! \n");
+		}
+		
+	}
+	printf("	THANK YOU! \n");
+}
+

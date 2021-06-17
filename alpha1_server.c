@@ -46,6 +46,7 @@ void train_disp()
             }
         }
     }
+
 void places_disp()
 {
 	// this is the function that will show all the available places 
@@ -70,6 +71,8 @@ void places_disp()
         // displaying every characters
         printf("%c", display);
     }
+	
+}
 int enterplace()
 {
 	int distance_val = 0;
@@ -96,6 +99,7 @@ int enterplace()
 	}
 	return distance_val;
 }
+
 	int rates_dist()
 {
 	int dist = enterplace();

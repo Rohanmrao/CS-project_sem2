@@ -2,6 +2,7 @@
 #include <string.h>
 #include "alpha1_server.h"
 #include <time.h>
+#include <stdlib.h>
 
 // creating all the functions that will land on the opening page  
 

@@ -168,7 +168,7 @@ double mobileNumber()                                         //Function definit
     return mobileNum;
 }
 
-int random_num()
+void random_num()
 {
     int a,otp;
     int i;
@@ -233,10 +233,10 @@ void final_ticket(int s, int t)
     printf("error");
   }
   
-  //final price = distance_multiplier * number of tickets * reservation multiplier
+  //final price = distance_multiplier * number of tickets * reservation multiplier 
   // reservation multipliers: 1- rs 25 | 2 - rs 20 |3 - rs 15 |4 - rs 10
   int fp ,dm;
-  fp = dm*t*rm*20;
+  fp = dm*t*rm;
   printf("total cost : %f",fp);
 
 }

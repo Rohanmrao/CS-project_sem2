@@ -2,6 +2,11 @@
 #include <string.h>
 #include "alpha1_server.h"
 
+//***********************************GLOBALS***********************************************
+	char name; 				
+	int age ,rm ;
+//*******************************************************************************************
+
 int main()
 
 { 
@@ -42,7 +47,19 @@ int main()
 	train_disp();
 	rates_dist(); // the first rate multiplier is generated here
 	
-	// Poorna's bio data and ticket book function comes here
+	int ser,tic;
+  	printf("NAME: ");
+  	scanf("%s",&name);
+  	printf(" age:");
+  	scanf("%d",&age);
+  	printf(" coach class: 1.AC CHAIR  | 2.AC SLEEPER | 3.CHAIR | 4.SLEEPER \n");
+  	printf("select coach class by entering the number next to it:");
+  	scanf("%d",&ser);
+  	printf("number of tickets:"); //t must be greater than 1
+  	scanf("%d",&tic);
+  
+  	final_ticket( ser,tic);
+  	disp(name);
 	
 	cancel_end();
 	

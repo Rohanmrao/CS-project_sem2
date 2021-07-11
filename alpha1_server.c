@@ -113,6 +113,81 @@ int enterplace(p1,p2,distance_val)
 							// number of tickets to get final ticket price 
 }
 
+void cancel_front()
+{
+	FILE *fp;
+	
+	//ATTEMPT TO OPEN THE TEXT FILE
+	fp = fopen("txt1.txt","r");
+
+	//CHECKING IF THE FILE EXISTS
+	if(fp == NULL)
+	{
+		printf("	FILE DOES NOT EXIST! \n");
+	}
+
+	//OPENING THE FILE AND PROCEEDING IF FILE EXISTS
+	else
+	{
+		char ph[20], check[20];
+
+		printf("	PLEASE ENTER YOUR PHONE NUMBER:  \n");   //PROMPTING USER TO ENTER THE PHONE NUMBER
+		scanf("%s", &ph);
+	
+		fscanf(fp, "%s", &check);   //READING THE PHONE NUMBER PRESENT IN THE TEXT FILE
+		if(!(strcmp(ph, check)))   //CHECKING IF THE ENTERED PHONE NUMBER MATCHES THAT PRESENT IN THE TEXT FILE
+		{
+
+			//GENERATING AN OTP
+			int otp, otp_enter;
+			int l = 1000, u = 9999, trials = 0;
+
+			srand(time(0)); 
+			otp = (rand() % (u - l + 1)) + l;  //ENSURING THAT THE RANDOM OTP GENERATED WILL CONSIST OF 4 DIGITS ONLY.
+			printf("	OTP: %d\n", otp);
+			printf("\n");
+
+			//PROMPT FOR USER TO ENTER THE OTP
+			printf("	ENTER YOUR OTP: ");
+			scanf("%d", &otp_enter);
+
+			//WE SHALL LIMIT THE NUMBER OF TRIALS OF OTP ENTRY TO 4.
+			while((otp_enter != otp) && (trials <= 2))
+			{
+				printf("	INVALID OTP! PLEASE TRY AGAIN \n");
+				printf("\n");
+				printf("	ENTER YOUR OTP: ");
+				scanf("%d", &otp_enter);
+				trials++;
+			}
+
+			//CHECKING IF THE NUMBER ENTERED MATCHES THE GENERATED OTP
+			if(otp_enter == otp)
+			{
+				printf("\n");
+				printf("	TICKETS HAVE BEEN CANCELED! \n");
+			}
+			else
+			{
+				printf("\n");
+				printf("	UNABLE TO CANCEL. SORRY! \n");
+			}
+		
+		}
+
+		else    //IF PHONE NUMBER ENTERED DOES NOT MATCH THAT PRESENT IN THE TEXT FILE
+		{
+			printf("\n");
+			printf("	INVALID PHONE NUMBER! \n");
+		}
+
+		fclose(fp);
+	}
+
+	printf("\n");
+	printf("	THANK YOU! \n");
+}
+
 void cancel_end()
 {
 	int a, otp, otp_enter;
@@ -153,6 +228,7 @@ void cancel_end()
 	}
 	printf("	THANK YOU! \n");
 }
+
 double mobileNumber()                                         //Function definition
 {
 	double mobileNum;

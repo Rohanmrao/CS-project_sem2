@@ -118,7 +118,7 @@ void cancel_front()
 	FILE *fp;
 	
 	//ATTEMPT TO OPEN THE TEXT FILE
-	fp = fopen("txt1.txt","r");
+	fp = fopen("logindetails.txt","r");
 
 	//CHECKING IF THE FILE EXISTS
 	if(fp == NULL)

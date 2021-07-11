@@ -46,6 +46,7 @@ void train_disp()
                 printf(" %d:%d PM\n",hr,min);
             }
         }
+
     }
 
 void places_disp()
@@ -74,8 +75,9 @@ void places_disp()
     }
 	
 }
-int enterplace(p1,p2,distance_val)
+int enterplace(int p1,int p2)
 {
+	int distance_val = 0, dist_multiplier;
 	if(p2 > p1){
 		distance_val = p2-p1;
 	}
@@ -90,22 +92,16 @@ int enterplace(p1,p2,distance_val)
 	{
 		printf("Invalid inputs..");
 	}
-	return distance_val;
-}
-
-	int rates_dist()
-{
-	int dist = enterplace();
-	int dist_multiplier;
-	if(dist >= 1 && dist <=5)
+	
+	if(distance_val >= 1 && distance_val <=5)
 	{
 		dist_multiplier = 2;
 	}
-	else if(dist >=6 && dist <=10)
+	else if(distance_val >=6 && distance_val <=10)
 	{
 		dist_multiplier = 3;
 	}
-	else if(dist >=11 && dist <15)
+	else if(distance_val >=11 && distance_val <15)
 	{
 		dist_multiplier = 4;
 	}
@@ -246,7 +242,7 @@ double mobileNumber()                                         //Function definit
 
 void random_num()
 {
-    int a,otp;
+    int a;
     int i;
 	double mob = mobileNumber();
     
@@ -275,11 +271,10 @@ void random_num()
         printf("\n              SORRY !!!!  LOGIN IS UNSUCCESSFULL");   
     }
 }
-void final_ticket(int s, int t)
+void final_ticket(int s, int t,int distmult)
 {	
-	int rm = 1;
-	int dm = rates_dist();
-   
+	int rm;
+	
   // reservation multipliers: 1- rs 25 | 2 - rs 20 |3 - rs 15 |4 - rs 10
   if (s>=1 && s<=4)
   {
@@ -311,20 +306,8 @@ void final_ticket(int s, int t)
   
   //final price = distance_multiplier * number of tickets * reservation multiplier 
   // reservation multipliers: 1- rs 25 | 2 - rs 20 |3 - rs 15 |4 - rs 10
-  int fp ,dm;
-  fp = dm*t*rm;
-  printf("total cost : %f",fp);
-
+  
+  printf("total cost : %f",(distmult*t*rm));
 }
 
-void disp(char name)
-{ 
-  printf("name : %s",name) ;
-  printf("mobile phone: ");
-  printf("booking status: BOOKED");
-  printf ("name of the train: ");
-  printf ("depature time:");
-  printf ("arrival  time:");
-  printf("car number:");
-}
 

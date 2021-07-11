@@ -3,7 +3,7 @@ void train_disp();
 void places_disp();     //Rohan
 int enterplace();
 int rates_dist();
-double mobileNumber()// *Rohan and Neelan 
+double mobileNumber();// *Rohan and Neelan 
   
 void cancel_front();
 void cancel_end(); // Roshan

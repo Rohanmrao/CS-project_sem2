@@ -4,8 +4,15 @@
 #include <stdlib.h>
 
 //***********************************GLOBALS***********************************************
-	char name[50], cancel_choice[2];				
-	int age ,rm ;
+	char name[50], cancel_choice[2], yes[2]="y";				
+	int age ,rm;
+	int ser,tic;
+	int train_choice;
+
+	int p1 = 0;int p2 = 0;
+
+	//int finalprice;
+	int rm,dm;
 //*******************************************************************************************
 
 int main()
@@ -31,7 +38,7 @@ int main()
 	random_num();
 	printf("Do you want to cancel an existing ticket ? (y/n) ");
 	scanf("%c",&cancel_choice);
-	if(cancel_choice == 'y')
+	if(strcmp(cancel_choice,yes) == 0)
 	{
 		cancel_front();
 	}
@@ -41,19 +48,17 @@ int main()
     
 	places_disp();
 	
-	int distance_val = 0;
+	
 	printf("Enter the Sl.no of the start point: ");
-	int p1 = 0;
 	scanf("%d",&p1);
 	printf("Enter the Sl.no of the end point: ");
-	int p2 = 0;
 	scanf("%d",&p2);
 	
-	enterplace(p1,p2,distance_val);
+	enterplace(p1, p2);
 	train_disp();
-	rates_dist(); // the first rate multiplier is generated here
-	
-	int ser,tic;
+	printf("Enter the Sl.No of the train you want: ");
+	scanf("%d\n",train_choice);
+
   	printf("NAME: ");
   	scanf("%s",&name);
   	printf(" age:");
@@ -64,8 +69,18 @@ int main()
   	printf("number of tickets:"); //t must be greater than 1
   	scanf("%d",&tic);
   
-  	final_ticket( ser,tic);
-  	disp(name);
+	dm = enterplace(p1,p2);
+  	final_ticket(ser,tic,dm);
+  	
+	printf("Name : %c\n",name) ;
+	printf("Age : %d\n",age);
+	double mobilenum_fordisplay = mobileNumber();
+  	printf("mobile phone: %lf: \n",mobilenum_fordisplay);
+  	printf("booking status: BOOKED");
+  	printf ("name of the train: ");
+  	printf ("depature time:");
+  	printf ("arrival  time:");
+  	printf("car number:");
 	
 	cancel_end();
 	

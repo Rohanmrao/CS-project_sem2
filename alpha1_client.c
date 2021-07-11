@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 //***********************************GLOBALS***********************************************
-	char name; 				
+	char name[50], cancel_choice[2];				
 	int age ,rm ;
 //*******************************************************************************************
 
@@ -29,8 +29,13 @@ int main()
 	printf("\n=================================");
 	mobileNumber();
 	random_num();
-	// roshan's cancel function comes here
-
+	printf("Do you want to cancel an existing ticket ? (y/n) ");
+	scanf("%c",&cancel_choice);
+	if(cancel_choice == 'y')
+	{
+		cancel_front();
+	}
+	
 	printf(">> View All Available Places and Trains");
 	printf("\n------------------------");
     

@@ -5,6 +5,7 @@ int enterplace();
 int rates_dist();
 double mobileNumber()// *Rohan and Neelan 
 
+void cancel_front();
 void cancel_end(); // Roshan
 
 void random_num(); //Neelan

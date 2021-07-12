@@ -76,11 +76,13 @@ int main()
 	printf("Age : %d\n",age);
 	double mobilenum_fordisplay = mobileNumber();
   	printf("mobile phone: %lf: \n",mobilenum_fordisplay);
+	printf("Date: ",__DATE__);
+	printf("Time: ",__TIME__);
   	printf("booking status: BOOKED");
-  	printf ("name of the train: ");
-  	printf ("depature time:");
-  	printf ("arrival  time:");
-  	printf("car number:");
+//   	printf ("name of the train: ");
+//   	printf ("depature time:");
+//   	printf ("arrival  time:");
+//   	printf("car number:");
 	
 	cancel_end();
 	

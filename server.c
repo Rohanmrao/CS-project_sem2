@@ -1,10 +1,17 @@
 #include <stdio.h>
 #include <string.h>
-#include "alpha1_server.h"
+#include "server.h"
 #include <time.h>
 #include <stdlib.h>
 
 // creating all the functions that will land on the opening page  
+
+int otp_gen(int l,int u)
+{
+	srand(time(0));
+	return ((rand() % (u - l + 1)) + l);
+
+}
 
 void train_disp()
 {
@@ -17,25 +24,25 @@ void train_disp()
                             ,"SiddagangaIntercity","VishwamanavaExpress","ChamundiExpress"
                             ,"KaveriExpress","BasavaExpress","GolGumbazExpress","TippuSuperfastExpress"    
                             ,"DurontoExpress","GaribRathExpress","MalgudiExpress","GomateshwaraExpress"
-                           ,"KarnatakaSamparkKrantiExpress","AmaravatiExpress"
-						   ,"PanchagangaExpress","NightQueenPassenger","PrashantiNilayamExpress"
+                           ,"KarnatakaSamparkKrantiExpress","AiravathaExpress"
+						   ,"Speed1Express","Speed2Express","Speed3Express"
                         };   // database of trains 
 						
 		int time_hr[25] = {1,2,3,4,5,6,7,8,9,10,11,12,11,10,9,8,7,6,5,4,3,2,1,4,5};
 		int time_min[25] = {10,15,20,30,35,40,45,50,40,35,30,25,20,15,10,10,15,20,25,30,30,30,30,45,45};   // database of times 
 
-		int l = 0, u = 26, ind1,ind2;
-		srand(time(0)); 
+		int ind1, u=26,l=0;
+		 srand(time(0)); 
 	
         for(int i = 0; i < 5; i++)
         {
                         
                         
 
-            ind1 = (rand() % (u - l + 1)) + l;
+            ind1 = ((rand() % (u - l + 1)) + l);
 			int hr = time_hr[ind1];
 			int min = time_min[ind1];
-            printf("%d. ",i+1);
+            printf("%d ",i+1);
             printf("%s ",train_db[ind1]);
             if(i%2 == 0)
             {
@@ -77,15 +84,18 @@ void places_disp()
 }
 int enterplace(int p1,int p2)
 {
-	int distance_val = 0, dist_multiplier;
+	int distance_val = 0, dist_multiplier, flag = 0;
 	if(p2 > p1){
 		distance_val = p2-p1;
+		flag++;
 	}
 	else if (p1 >p2){
 		distance_val = p1-p2;
+		flag++;
 	}
 	else {
 		distance_val = 0;
+		flag++;
 	}
 
 	if((p1 >15 && p2 >15) || (p2 <=0 && p1 <=0))
@@ -93,15 +103,15 @@ int enterplace(int p1,int p2)
 		printf("Invalid inputs..");
 	}
 	
-	if(distance_val >= 1 && distance_val <=5)
+	if(distance_val >= 1 && distance_val <=5 && flag!=0)
 	{
 		dist_multiplier = 2;
 	}
-	else if(distance_val >=6 && distance_val <=10)
+	else if(distance_val >=6 && distance_val <=10 && flag!=0)
 	{
 		dist_multiplier = 3;
 	}
-	else if(distance_val >=11 && distance_val <15)
+	else if(distance_val >=11 && distance_val <15 && flag!=0)
 	{
 		dist_multiplier = 4;
 	}
@@ -136,10 +146,10 @@ void cancel_front()
 
 			//GENERATING AN OTP
 			int otp, otp_enter;
-			int l = 1000, u = 9999, trials = 0;
+			int trials = 0;
 
-			srand(time(0)); 
-			otp = (rand() % (u - l + 1)) + l;  //ENSURING THAT THE RANDOM OTP GENERATED WILL CONSIST OF 4 DIGITS ONLY.
+			//srand(time(0)); 
+			otp = otp_gen(1000,9999); //ENSURING THAT THE RANDOM OTP GENERATED WILL CONSIST OF 4 DIGITS ONLY.
 			printf("	OTP: %d\n", otp);
 			printf("\n");
 
@@ -194,10 +204,10 @@ void cancel_end()
 	{
 		int l = 1000, u = 9999, otp, trials = 0;
 
-		srand(time(0)); 
-		otp = (rand() % (u - l + 1)) + l;  //ENSURING THAT THE RANDOM OTP GENERATED WILL CONSIST OF 4 DIGITS ONLY.
+		//srand(time(0)); 
+		otp = otp_gen(l,u);  //ENSURING THAT THE RANDOM OTP GENERATED WILL CONSIST OF 4 DIGITS ONLY.
 		printf("	OTP: %d\n", otp);
-		printf("\n");
+		//printf("\n");
 		printf("	ENTER YOUR OTP: ");
 		scanf("%d", &otp_enter);
 		//WE SHALL LIMIT THE NUMBER OF TRIALS OF OTP ENTRY TO 4.
@@ -225,40 +235,31 @@ void cancel_end()
 	printf("	THANK YOU! \n");
 }
 
-double mobileNumber()                                         //Function definition
+double mobileNumber(double mb) //Function definition
 {
-	double mobileNum;
-	printf("\n  =======================  LOGIN FORM  =======================\n  ");
-    printf("                       ENTER YOUR PHONE NUMBER: ");
-	scanf("%lf",&mobileNum);
-	
-    if (mobileNum < 1000000000 || mobileNum > 9999999999)
+    if (mb < 1000000000 || mb > 9999999999)
     {
         printf("\n Please enter only 10 digits... \n");
-		mobileNumber();    
+		exit(0);    
     }
-    return mobileNum;
+    return mb;
 }
 
-void random_num()
+void random_num(double mob)
 {
-    int a;
-    int i;
-	double mob = mobileNumber();
+    int i = 0;
     
     printf("\n");
     printf("                       ONE TIME PASSWORD is : ");
-    int l = 1000, u = 9999, otp, trials = 0;
-	srand(time(0)); 
-	a = (rand() % (u - l + 1)) + l;
+    int otp, trials = 0; 
+	int a = otp_gen(1000,9999);
     printf("%d\n",a);
     printf(" \n                       ENTER ONE TIME PASSWORD: ");
     scanf("%d",&otp);
-    i=0; 
     
     if(a==otp)
     {
-        printf("  \n\n\n       WELCOME TO OUR SYSTEM !! YOUR LOGIN IS SUCCESSFUL");
+        printf("      WELCOME TO OUR SYSTEM !! YOUR LOGIN IS SUCCESSFUL\n");
 	 
         FILE *fp;
 	    fp=fopen("logindetails.txt","w");
@@ -268,46 +269,36 @@ void random_num()
     }    
     else 
     {
-        printf("\n              SORRY !!!!  LOGIN IS UNSUCCESSFULL");   
+        printf("             SORRY !!!!  LOGIN IS UNSUCCESSFULL\n");   
     }
 }
-void final_ticket(int s, int t,int distmult)
+int final_ticket(int s, int t,int distmult)
 {	
-	int rm;
+	
 	
   // reservation multipliers: 1- rs 25 | 2 - rs 20 |3 - rs 15 |4 - rs 10
   if (s>=1 && s<=4)
   {
     if(s==1)
     {
-      printf("coach class: AC CHAIR");
-      rm= 25;
+      return (25*s*t*distmult);
     }   
     if(s==2)
     {
-      printf("coach class: AC SLEEPER");
-      rm=20;
+      return (20*s*t*distmult);
     }  
     if(s==3)
     {
-      printf("coach class: SLEEPER");
-      rm= 15;
+      return (15*s*t*distmult);
     }   
     else
     {
-      printf("coach class:  CHAIR");
-      rm=10;
+      return (10*s*t*distmult);
     }     
-  }
-  else
-  {
-    printf("error");
-  }
-  
+  } 
   //final price = distance_multiplier * number of tickets * reservation multiplier 
   // reservation multipliers: 1- rs 25 | 2 - rs 20 |3 - rs 15 |4 - rs 10
   
-  printf("total cost : %f",(distmult*t*rm));
 }
 
 

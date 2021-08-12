@@ -126,7 +126,7 @@ int main()
   	printf("booking status: BOOKED\n");
 	printf("Total amount: %d\n",payup);
 	
-	printf("Do you want to cancel an existing ticket ? (y/n): ");
+	printf("Do you want to cancel the ticket you just booked ? (y/n): ");
 	scanf("%s",cancel_choice);getchar();
 
 	if(strcmp(cancel_choice,"y") == 0)

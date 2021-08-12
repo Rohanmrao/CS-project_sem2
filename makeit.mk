@@ -1,6 +1,6 @@
-build.out:alpha1_client.o alpha1_server.o
-	gcc alpha1_client.o alpha1_server.o
-client.o:alpha1_client.c alpha1_server.h
-	gcc -c alpha1_client.c 
-server.o:alpha1_server.c alpha1_server.h
-	gcc -c alpha1_server.c
+a.out:client.o server.o
+	gcc client.o server.o
+client.o:client.c server.h
+	gcc -c client.c 
+server.o:server.c server.h
+	gcc -c server.c

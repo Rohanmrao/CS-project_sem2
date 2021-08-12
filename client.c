@@ -22,19 +22,19 @@
 int main()
 
 { 
-	// printf("\t\t=================================================\n");
-	// printf("\t\t|                                               |\n");
-	// printf("\t\t|     --------------------------------          |\n");
-	// printf("\t\t|     TRAIN TICKET RERSERVATION SYSTEM          |\n");
-	// printf("\t\t|     --------------------------------          |\n");
-	// printf("\t\t|                                               |\n");
-	// printf("\t\t|      ______SEMESTER 2 PROJECT______           |\n");
-	// printf("\t\t|                                               |\n");
-	// printf("\t\t|                                               |\n");
-	// printf("\t\t|                                               |\n");
-	// printf("\t\t|                                               |\n");
-	// printf("\t\t=================================================\n\n\n");
-	// fflush(stdin);
+	printf("\t\t=================================================\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t|     --------------------------------          |\n");
+	printf("\t\t|     TRAIN TICKET RERSERVATION SYSTEM          |\n");
+	printf("\t\t|     --------------------------------          |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t|      ______SEMESTER 2 PROJECT______           |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t=================================================\n\n\n");
+	
 	printf("=================================\n");
 	printf("    TRAIN RESERVATION SYSTEM - LOGIN/CANCEL PAGE\n");
 	printf("=================================\n");

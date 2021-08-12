@@ -64,11 +64,10 @@ void places_disp()
 	FILE* places_disp;
     int display;
  
-    // Creates a file "demo_file"
-    // with file acccess as read mode
+    
     places_disp = fopen("places.txt", "r");
  
-    // loop to extract every characters
+    // loop to extract all characters
     while (1) {
         // reading file
         display = fgetc(places_disp);
@@ -121,11 +120,10 @@ int enterplace(int p1,int p2)
 
 void cancel_front(double mobileNum)
 {
-	FILE *fp;
+	FILE *fp; 
 	
 	//ATTEMPT TO OPEN THE TEXT FILE
 	fp = fopen("logindetails.txt","r");
-
 	//CHECKING IF THE FILE EXISTS
 	if(fp == NULL)
 	{
@@ -135,12 +133,10 @@ void cancel_front(double mobileNum)
 	//OPENING THE FILE AND PROCEEDING IF FILE EXISTS
 	else
 	{
-		double ph, check[20];
+		double ph;
 
 		printf("PLEASE ENTER YOUR PHONE NUMBER:  \n");   //PROMPTING USER TO ENTER THE PHONE NUMBER
-		scanf("%ld", &ph);
-	
-		fscanf(fp, "%s", &check);   //READING THE PHONE NUMBER PRESENT IN THE TEXT FILE
+		scanf("%lf", &ph);
 		if(ph==mobileNum)   //CHECKING IF THE ENTERED PHONE NUMBER MATCHES THAT PRESENT IN THE TEXT FILE
 		{
 
@@ -264,7 +260,7 @@ void random_num(double mob)
 	 
         FILE *fp;
 	    fp=fopen("logindetails.txt","w");
-        fprintf(fp,"%lf",mob);
+        fprintf(fp,"%.0f",mob);
         fclose(fp);
 
     }    

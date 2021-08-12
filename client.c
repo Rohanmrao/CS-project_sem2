@@ -1,18 +1,22 @@
 #include <stdio.h>
 #include <string.h>
-#include "alpha1_server.h"
 #include <stdlib.h>
+#include "server.h"
+
+
 
 //***********************************GLOBALS***********************************************
-	char name[50], cancel_choice[2], yes[2]="y";				
+	char name[50], cancel_choice[1];				
 	int age ,rm;
 	int ser,tic;
 	int train_choice;
 
 	int p1 = 0;int p2 = 0;
 
-	//int finalprice;
-	int rm,dm;
+	
+	int payup,dm;
+
+	double mobileNum; double mobilenum_fordisplay;
 //*******************************************************************************************
 
 int main()
@@ -31,14 +35,20 @@ int main()
 	printf("\t\t|                                               |\n");
 	printf("\t\t=================================================\n\n\n");
 
-	printf("\n=================================\n");
+	printf("=================================\n");
 	printf("    TRAIN RESERVATION SYSTEM - LOGIN/CANCEL PAGE");
-	printf("\n=================================");
-	mobileNumber();
-	random_num();
-	printf("Do you want to cancel an existing ticket ? (y/n) ");
-	scanf("%c",&cancel_choice);
-	if(strcmp(cancel_choice,yes) == 0)
+	printf("=================================\n");
+	printf("  =======================  LOGIN FORM  =======================\n  ");
+    printf("                       ENTER YOUR PHONE NUMBER: ");
+	scanf("%lf",&mobileNum);
+	mobileNumber(mobileNum);
+
+	random_num(mobileNum);
+
+	printf("Do you want to cancel an existing ticket ? (y/n):\n");
+	scanf("%s",cancel_choice);
+
+	if(strcmp(cancel_choice,"y") == 0)
 	{
 		cancel_front();
 	}
@@ -53,11 +63,14 @@ int main()
 	scanf("%d",&p1);
 	printf("Enter the Sl.no of the end point: ");
 	scanf("%d",&p2);
+	dm = enterplace(p1,p2); // dist mult generated here 
+
 	
-	enterplace(p1, p2);
 	train_disp();
 	printf("Enter the Sl.No of the train you want: ");
-	scanf("%d\n",train_choice);
+	scanf("%d",train_choice);
+	printf("\n");
+	printf("----------------------------\n");
 
   	printf("NAME: ");
   	scanf("%s",&name);
@@ -69,22 +82,19 @@ int main()
   	printf("number of tickets:"); //t must be greater than 1
   	scanf("%d",&tic);
   
-	dm = enterplace(p1,p2);
-  	final_ticket(ser,tic,dm);
-  	
-	printf("Name : %c\n",name) ;
-	printf("Age : %d\n",age);
-	double mobilenum_fordisplay = mobileNumber();
-  	printf("mobile phone: %lf: \n",mobilenum_fordisplay);
-	printf("Date: ",__DATE__);
-	printf("Time: ",__TIME__);
-  	printf("booking status: BOOKED");
-//   	printf ("name of the train: ");
-//   	printf ("depature time:");
-//   	printf ("arrival  time:");
-//   	printf("car number:");
 	
-	cancel_end();
+	// printf("%d",dm);
+	// payup = final_ticket(ser,tic,dm);
+  	
+	// printf("Name : %c\n",name) ;
+	// printf("Age : %d\n",age);
+	// mobilenum_fordisplay = mobileNumber(mobileNum);
+  	// printf("mobile phone: %lf\n",mobilenum_fordisplay);
+  	// printf("booking status: BOOKED");
+	// printf("Total amount: %d",payup);
+	
+	// //cancel_end();
+	
 	
 	return(0);
 }

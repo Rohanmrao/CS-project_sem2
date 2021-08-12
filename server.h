@@ -6,8 +6,8 @@ void places_disp();     //Rohan
 int enterplace(int p1, int p2); 
 double mobileNumber(double mb);// *Rohan and Neelan 
   
-void cancel_front();
-void cancel_end(); // Roshan
+void cancel_front(double mobileNum);
+void cancel_end(double mobileNum); // Roshan
 
 void random_num(double mobileNum); //Neelan
 

@@ -9,7 +9,7 @@
 	char name[50], cancel_choice[1];				
 	int age ,rm;
 	int ser,tic;
-	int train_choice;
+	int train_choice, choice_flag = 1;
 
 	int p1 = 0;int p2 = 0;
 
@@ -22,78 +22,117 @@
 int main()
 
 { 
-	printf("\t\t=================================================\n");
-	printf("\t\t|                                               |\n");
-	printf("\t\t|     --------------------------------          |\n");
-	printf("\t\t|     TRAIN TICKET RERSERVATION SYSTEM          |\n");
-	printf("\t\t|     --------------------------------          |\n");
-	printf("\t\t|                                               |\n");
-	printf("\t\t|      ______SEMESTER 2 PROJECT______           |\n");
-	printf("\t\t|                                               |\n");
-	printf("\t\t|                                               |\n");
-	printf("\t\t|                                               |\n");
-	printf("\t\t|                                               |\n");
-	printf("\t\t=================================================\n\n\n");
-
+	// printf("\t\t=================================================\n");
+	// printf("\t\t|                                               |\n");
+	// printf("\t\t|     --------------------------------          |\n");
+	// printf("\t\t|     TRAIN TICKET RERSERVATION SYSTEM          |\n");
+	// printf("\t\t|     --------------------------------          |\n");
+	// printf("\t\t|                                               |\n");
+	// printf("\t\t|      ______SEMESTER 2 PROJECT______           |\n");
+	// printf("\t\t|                                               |\n");
+	// printf("\t\t|                                               |\n");
+	// printf("\t\t|                                               |\n");
+	// printf("\t\t|                                               |\n");
+	// printf("\t\t=================================================\n\n\n");
+	// fflush(stdin);
 	printf("=================================\n");
-	printf("    TRAIN RESERVATION SYSTEM - LOGIN/CANCEL PAGE");
+	printf("    TRAIN RESERVATION SYSTEM - LOGIN/CANCEL PAGE\n");
 	printf("=================================\n");
-	printf("  =======================  LOGIN FORM  =======================\n  ");
-    printf("                       ENTER YOUR PHONE NUMBER: ");
+	printf("  =======================  LOGIN FORM =======================\n  ");
+    printf("ENTER YOUR PHONE NUMBER: ");
 	scanf("%lf",&mobileNum);
+	getchar();
+
 	mobileNumber(mobileNum);
-
+	
 	random_num(mobileNum);
-
-	printf("Do you want to cancel an existing ticket ? (y/n):\n");
-	scanf("%s",cancel_choice);
+	getchar();
+	printf("Do you want to cancel an existing ticket ? (y/n): ");
+	scanf("%s",cancel_choice);getchar();
 
 	if(strcmp(cancel_choice,"y") == 0)
 	{
-		cancel_front();
+		cancel_front(mobileNum);
 	}
 	
-	printf(">> View All Available Places and Trains");
-	printf("\n------------------------");
-    
 	places_disp();
+	printf("-------------------------\n");
 	
 	
 	printf("Enter the Sl.no of the start point: ");
-	scanf("%d",&p1);
+	scanf("%d",&p1); getchar();
 	printf("Enter the Sl.no of the end point: ");
-	scanf("%d",&p2);
+	scanf("%d",&p2);getchar();
 	dm = enterplace(p1,p2); // dist mult generated here 
 
 	
 	train_disp();
-	printf("Enter the Sl.No of the train you want: ");
-	scanf("%d",train_choice);
 	printf("\n");
-	printf("----------------------------\n");
+	printf("You have been allotted train number %d... \n",choice_flag);
+	printf("Type 1 to accept... 2 to reject :");
+	scanf("%d",&train_choice); getchar();
+	choice_flag=2;
 
+	if(train_choice == 2 && choice_flag>=2)
+	{
+		printf("------------------------------\n");
+		printf("Reallotting...\n");
+		printf("You have been allotted train number %d... \n",choice_flag);
+		printf("Type 1 to accept... 2 to reject :");
+		scanf("%d",&train_choice); getchar();
+		choice_flag=3;
+	}
+
+	if(train_choice == 2 && choice_flag>=2)
+	{
+		printf("------------------------------\n");
+		printf("Reallotting...\n");
+		printf("You have been allotted train number %d... \n",choice_flag);
+		printf("Type 1 to accept... 2 to reject :");
+		scanf("%d",&train_choice); getchar();
+		choice_flag=4;
+	}
+
+	if(train_choice == 2 && choice_flag>=2)
+	{
+		printf("------------------------------\n");
+		printf("Reallotting...\n");
+		printf("You have been allotted train number %d... \n",choice_flag);
+		printf("Type 1 to accept... 2 to reject :");
+		scanf("%d",&train_choice); getchar();
+		choice_flag=5;
+	}
+
+	printf("-----------------------------------\n");
   	printf("NAME: ");
-  	scanf("%s",&name);
-  	printf(" age:");
-  	scanf("%d",&age);
-  	printf(" coach class: 1.AC CHAIR  | 2.AC SLEEPER | 3.CHAIR | 4.SLEEPER \n");
-  	printf("select coach class by entering the number next to it:");
-  	scanf("%d",&ser);
-  	printf("number of tickets:"); //t must be greater than 1
-  	scanf("%d",&tic);
+	fflush(stdin);
+  	scanf("%s",&name);getchar();
+  	printf("Age: ");
+	fflush(stdin);
+  	scanf("%d",&age);getchar();
+  	printf("coach class: 1.AC CHAIR  | 2.AC SLEEPER | 3.CHAIR | 4.SLEEPER \n");
+  	printf("select coach class by entering the number next to it: ");
+  	scanf("%d",&ser);getchar();
+  	printf("number of tickets:");
+  	scanf("%d",&tic);getchar();
   
-	
-	// printf("%d",dm);
-	// payup = final_ticket(ser,tic,dm);
+	payup = final_ticket(ser,tic,dm); // total amount
   	
-	// printf("Name : %c\n",name) ;
-	// printf("Age : %d\n",age);
-	// mobilenum_fordisplay = mobileNumber(mobileNum);
-  	// printf("mobile phone: %lf\n",mobilenum_fordisplay);
-  	// printf("booking status: BOOKED");
-	// printf("Total amount: %d",payup);
+	printf("---------- BILL ------------\n");
+	puts(name);
+	printf("Age : %d\n",age);
+	mobilenum_fordisplay = mobileNumber(mobileNum);
+  	printf("mobile phone: %lf\n",mobilenum_fordisplay);
+  	printf("booking status: BOOKED\n");
+	printf("Total amount: %d\n",payup);
 	
-	// //cancel_end();
+	printf("Do you want to cancel an existing ticket ? (y/n): ");
+	scanf("%s",cancel_choice);getchar();
+
+	if(strcmp(cancel_choice,"y") == 0)
+	{
+		cancel_end(mobileNum);
+	}
 	
 	
 	return(0);

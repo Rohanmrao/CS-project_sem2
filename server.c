@@ -119,7 +119,7 @@ int enterplace(int p1,int p2)
 							// number of tickets to get final ticket price 
 }
 
-void cancel_front()
+void cancel_front(double mobileNum)
 {
 	FILE *fp;
 	
@@ -135,13 +135,13 @@ void cancel_front()
 	//OPENING THE FILE AND PROCEEDING IF FILE EXISTS
 	else
 	{
-		char ph[20], check[20];
+		double ph, check[20];
 
-		printf("	PLEASE ENTER YOUR PHONE NUMBER:  \n");   //PROMPTING USER TO ENTER THE PHONE NUMBER
-		scanf("%s", &ph);
+		printf("PLEASE ENTER YOUR PHONE NUMBER:  \n");   //PROMPTING USER TO ENTER THE PHONE NUMBER
+		scanf("%ld", &ph);
 	
 		fscanf(fp, "%s", &check);   //READING THE PHONE NUMBER PRESENT IN THE TEXT FILE
-		if(!(strcmp(ph, check)))   //CHECKING IF THE ENTERED PHONE NUMBER MATCHES THAT PRESENT IN THE TEXT FILE
+		if(ph==mobileNum)   //CHECKING IF THE ENTERED PHONE NUMBER MATCHES THAT PRESENT IN THE TEXT FILE
 		{
 
 			//GENERATING AN OTP
@@ -194,7 +194,7 @@ void cancel_front()
 	printf("	THANK YOU! \n");
 }
 
-void cancel_end()
+void cancel_end(double mobileNumber)
 {
 	int a, otp, otp_enter;
 
@@ -254,8 +254,9 @@ void random_num(double mob)
     int otp, trials = 0; 
 	int a = otp_gen(1000,9999);
     printf("%d\n",a);
-    printf(" \n                       ENTER ONE TIME PASSWORD: ");
+    printf("                        ENTER ONE TIME PASSWORD: ");
     scanf("%d",&otp);
+	getchar();
     
     if(a==otp)
     {

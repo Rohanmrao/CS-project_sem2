@@ -13,3 +13,9 @@ void random_num(double mobileNum); //Neelan
 
 int final_ticket(int s, int t, int distmult); // Poornachandra
 
+typedef struct location
+{
+	char origin[100];
+	char destination[100];
+}location;   // Roshan
+

@@ -17,6 +17,10 @@
 	int payup,dm;
 
 	double mobileNum; double mobilenum_fordisplay;
+
+	location loc;
+
+	char *places[50] = {"BangaloreCity", "MumbaiCST", "NewDelhi", "Bijapur", "Kolhapur", "Mysore", "Badami", "ChennaiCentral", "Secunderabad", "Hubli", "Hospet", "Jaipur", "Lucknow", "Solapur", "Mangalore"};
 //*******************************************************************************************
 
 int main()
@@ -61,8 +65,10 @@ int main()
 	
 	printf("Enter the Sl.no of the start point: ");
 	scanf("%d",&p1); getchar();
+	strcpy(loc.origin, places[p1 - 1]);
 	printf("Enter the Sl.no of the end point: ");
 	scanf("%d",&p2);getchar();
+	strcpy(loc.destination, places[p2 - 1]);
 	dm = enterplace(p1,p2); // dist mult generated here 
 
 	
@@ -123,6 +129,8 @@ int main()
 	printf("Age : %d\n",age);
 	mobilenum_fordisplay = mobileNumber(mobileNum);
   	printf("mobile phone: %lf\n",mobilenum_fordisplay);
+	printf("From: %s\n", loc.origin);
+	printf("To: %s\n", loc.destination);
   	printf("booking status: BOOKED\n");
 	printf("Total amount: %d\n",payup);
 	

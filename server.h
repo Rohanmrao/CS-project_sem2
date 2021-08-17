@@ -12,4 +12,5 @@ void cancel_end(double mobileNum); // Roshan
 void random_num(double mobileNum); //Neelan
 
 int final_ticket(int s, int t, int distmult); // Poornachandra
+int check(int,int,int,int);
 

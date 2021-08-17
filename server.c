@@ -298,4 +298,54 @@ int final_ticket(int s, int t,int distmult)
   
 }
 
+ int check(int dd,int mm ,int yy,int flag)
+{    
+    time_t t;
+    t = time(NULL);
+    struct tm tm = *localtime(&t);
+    
+
+    if(yy==(tm.tm_year+1900))
+    {
+       if(mm==(tm.tm_mon+1))
+       {
+           if(dd>tm.tm_mday && dd<=30)
+              {
+                  return flag++;
+              }
+              
+        }
+
+        if (mm>(tm.tm_mon+1) && mm<=12)
+        {
+            if(dd>=1 && dd<=30)
+            {
+               return flag++;
+            }
+        }
+    
+    }
+
+    if (yy==(tm.tm_year+1901))
+    {
+       if(mm==(tm.tm_mon+1))
+       {
+           if(dd<tm.tm_mday && dd>=1)
+              {
+                 return  flag++;
+              }
+              
+        }
+
+        if (mm<=(tm.tm_mon+1) && mm<=12)
+        {
+            if(dd>=1 && dd<=30)
+            {
+               return flag++;
+            }
+        }
+    }
+
+}
+
 

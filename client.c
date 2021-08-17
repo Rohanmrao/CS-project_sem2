@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "server.h"
-
+#include <time.h>
 
 
 //***********************************GLOBALS***********************************************
@@ -38,15 +38,15 @@ int main()
 	printf("=================================\n");
 	printf("    TRAIN RESERVATION SYSTEM - LOGIN/CANCEL PAGE\n");
 	printf("=================================\n");
-	printf("  =======================  LOGIN FORM =======================\n  ");
+	printf("=======================  LOGIN FORM =======================\n  ");
     printf("ENTER YOUR PHONE NUMBER: ");
 	scanf("%lf",&mobileNum);
 	getchar();
 
 	mobileNumber(mobileNum);
-	
 	random_num(mobileNum);
 	getchar();
+
 	printf("Do you want to cancel an existing ticket ? (y/n): ");
 	scanf("%s",cancel_choice);getchar();
 

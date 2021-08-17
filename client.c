@@ -128,7 +128,7 @@ int main()
 	puts(name);
 	printf("Age : %d\n",age);
 	mobilenum_fordisplay = mobileNumber(mobileNum);
-  	printf("mobile phone: %lf\n",mobilenum_fordisplay);
+  	printf("mobile phone: %.0f\n",mobilenum_fordisplay);
 	printf("From: %s\n", loc.origin);
 	printf("To: %s\n", loc.destination);
   	printf("booking status: BOOKED\n");

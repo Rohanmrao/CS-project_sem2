@@ -1,15 +1,15 @@
-1. Bangalore RS
-2. Mumbai RS
-3. Delhi RS
-4. Kanpur RS
-5. Mandya RS
-6. Mysore RS
-7. Hassan RS
-8. Chennai RS
-9. Hyderabad RS
-10. Coonoor RS
-11. Kochi RS
-12. Jaipur RS
-13. Lucknow RS
-14. Davangere RS
-15. Mangalore RS
+1. BangaloreCity 
+2. MumbaiCST 
+3. NewDelhi 
+4. Bijapur 
+5. Kolhapur 
+6. Mysore 
+7. Badami 
+8. ChennaiCentral 
+9. Secunderabad 
+10. Hubli 
+11. Hospet 
+12. Jaipur 
+13. Lucknow 
+14. Solapur 
+15. Mangalore 

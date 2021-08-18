@@ -180,7 +180,7 @@ int main()                                            //Main Function
 	printf("Age : %d\n",age);
 	mobilenum_fordisplay = mobileNumber(mobileNum);
   	printf("Ticket(s) booked for : %d/%d/%d\n",dd,mm,yy);
-	printf("Mobile Fhone: %.0f\n",mobilenum_fordisplay);
+	printf("Mobile Phone: %.0f\n",mobilenum_fordisplay);
 	printf("From: %s\n", loc.origin);
 	printf("To: %s\n", loc.destination);
 	printf("Train number: %d\n",choice_flag-1);

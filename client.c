@@ -183,6 +183,7 @@ int main()                                            //Main Function
 	printf("Mobile Fhone: %.0f\n",mobilenum_fordisplay);
 	printf("From: %s\n", loc.origin);
 	printf("To: %s\n", loc.destination);
+	printf("Train number: %d",choice_flag);
   	printf("Booking Status: BOOKED\n");
 	printf("Total Amount: %d\n",payup);
 	booked_on();

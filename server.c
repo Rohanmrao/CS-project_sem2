@@ -249,6 +249,7 @@ int booked_on()                   // displays real time at which the ticket was 
     t = time(NULL);
     struct tm tm = *localtime(&t); 
     printf("This tickect was booked on: %d-%d-%d", tm.tm_mday, tm.tm_mon+1, tm.tm_year+1900);
+	printf("\n");
     
 }
 
